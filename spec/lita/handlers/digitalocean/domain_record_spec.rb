@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::DomainRecord, lita_handler: true do
+describe Lita::Handlers::Digitalocean::DomainRecord, lita_handler: true,  base_handlers: [Lita::Handlers::Digitalocean] do
   it do
     is_expected.to route_command(
       "do domain records create example.com txt 'some value' --name example.com"

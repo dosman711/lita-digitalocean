@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::SSHKey, lita_handler: true do
+describe Lita::Handlers::Digitalocean::SSHKey, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean] do
   it { is_expected.to route_command("do ssh keys add 'foo bar' 'ssh-rsa abcdefg'").to(:add) }
   it { is_expected.to route_command("do ssh keys delete 123").to(:delete) }
   it do

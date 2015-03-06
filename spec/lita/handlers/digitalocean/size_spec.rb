@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::Size, lita_handler: true do
+describe Lita::Handlers::Digitalocean::Size, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean] do
   it { is_expected.to route_command("do sizes list").to(:list) }
 
   let(:client) { instance_double( "::DigitalOcean::API", sizes: client_sizes) }

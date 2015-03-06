@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::Droplet, lita_handler: true do
+describe Lita::Handlers::Digitalocean::Droplet, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean] do
   it do
     is_expected.to route_command(
       "do droplets create example.com 512mb centos-5-8-x64 nyc1"

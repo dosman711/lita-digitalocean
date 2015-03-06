@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::Domain, lita_handler: true do
+describe Lita::Handlers::Digitalocean::Domain, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean] do
   it { is_expected.to route_command("do domains create example.com 10.10.10.10").to(:create) }
   it { is_expected.to route_command("do domains delete example.com").to(:delete) }
   it { is_expected.to route_command("do domains list").to(:list) }

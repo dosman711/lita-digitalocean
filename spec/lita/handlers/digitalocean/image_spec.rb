@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Lita::Handlers::Digitalocean::Image, lita_handler: true do
+describe Lita::Handlers::Digitalocean::Image, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean] do
   it { is_expected.to route_command("do images delete 123").to(:delete) }
   it { is_expected.to route_command("do images list").to(:list) }
   it { is_expected.to route_command("do images list filter").to(:list) }

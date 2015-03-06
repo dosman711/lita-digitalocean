@@ -12,7 +12,7 @@ handler_class = Class.new(Lita::Handlers::Digitalocean::Base) do
   end
 end
 
-describe handler_class, lita_handler: true do
+describe handler_class, lita_handler: true, base_handlers: [Lita::Handlers::Digitalocean]  do
   describe "#do_call" do
     it "responds with an error if the DigitalOcean API responds with an error" do
       registry.config.handlers.digitalocean.tap do |config|
